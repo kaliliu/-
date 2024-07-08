@@ -119,19 +119,20 @@
 
 
     :deep(.wd-input__value){
-      height: .6rem;
+      height: .7rem;
     }
     :deep(.wd-input__suffix){
-      height: .6rem;
+      height: .7rem;
       position: relative;
     }
     :deep(.wd-icon){
       position: absolute;
-      left: -.4rem;
-      top: .22rem;
+      left: -.6rem;
+      top: .16rem;
+      font-size: .38rem;
     }
     :deep(.uni-input-input){
-      font-size: .22rem;
+      font-size: .32rem;
     }
 
 

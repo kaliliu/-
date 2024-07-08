@@ -44,15 +44,6 @@ export default defineUniPages({
   },
   pages: [
     {
-      path: 'pages/userInfor/userInfor',
-      type: 'home',
-      layout: 'default',
-      style: {
-        navigationBarTitleText: '',
-        navigationStyle: 'custom',
-      },
-    },
-    {
       path: 'pages/distinguish/distinguish',
       layout: 'default',
       style: {
@@ -60,6 +51,17 @@ export default defineUniPages({
         navigationStyle: 'custom',
       },
     },
+    {
+      path: 'pages/userInfor/userInfor',
+      layout: 'default',
+      type: 'home',
+
+      style: {
+        navigationBarTitleText: '',
+        navigationStyle: 'custom',
+      },
+    },
+
     {
       path: 'pages/login/login',
       layout: 'default',
@@ -70,7 +72,6 @@ export default defineUniPages({
     },
     {
       path: 'pages/index/index',
-
       layout: 'default',
       style: {
         navigationStyle: 'custom',

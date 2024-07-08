@@ -21,7 +21,6 @@
         <div>使用帮助</div>
         <div>机柜信息</div>
       </div>
-
     </div>
 
 
@@ -66,24 +65,24 @@ onMounted(() => {})
 
 <style lang="scss" scoped>
 .home {
-  border: 1px solid red;
+  /*border: 1px solid red;*/
   box-sizing: border-box;
-  padding: 10rpx;
+  padding: .1rem;
   .home-mid{
     background:#243157 ;
 
     .h-m-img{
       width: 100%;
-      height: 560rpx;
+      height: 8.7rem;
       background: #2c395d;
     }
     .h-m-btn{
       width: 100%;
-      height: 320rpx;
+      height: 4.56rem;
       box-sizing: border-box;
-      border-radius: 30rpx;
+      border-radius: .3rem;
       background: #354164;
-      margin: 10rpx 0;
+      margin: .2rem 0;
 
       display: flex;
       flex-direction: row;
@@ -95,14 +94,15 @@ onMounted(() => {})
 
       div{
 
-        width: 300rpx;
-        height: 122rpx;
-        line-height: 122rpx;
+        width: 4.33rem;
+        height: 1.78rem;
+        line-height: 1.78rem;
         border: 1px solid #285a94;
         box-sizing: border-box;
-        border-radius: 15rpx;
+        border-radius: .18rem;
         background: #2a578e;
         text-align: center;
+        font-size: .38rem;
 
       }
 
@@ -116,29 +116,26 @@ onMounted(() => {})
     border-left: 4px solid #1d72be;
     border-right: 4px solid #1d72be;
     box-sizing: border-box;
-    padding: 20rpx 40rpx;
-    margin-bottom: 30rpx;
+    padding: .28rem .6rem;
+    margin-bottom: .46rem;
     .h-btm-tit{
-      font-size: 22rpx;
+      font-size: .3rem;
       display: flex;
       align-items: center;
-      margin-bottom: 15rpx;
+      margin-bottom: .2rem;
       div:nth-child(1){
-        width: 38rpx;
-        height: 30rpx;
+        width: .5rem;
+        height: .4rem;
         border: 1px solid #ccc;
-        margin-right: 22rpx;
+        margin-right: .3rem;
       }
-      div:nth-child(2){
 
-      }
     }
 
     .btm-txt{
-      font-size: 18rpx;
-      line-height: 28rpx;
+      font-size: .2rem;
+      line-height: .35rem;
     }
-
 
 
 
