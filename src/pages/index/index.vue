@@ -8,17 +8,44 @@
 }
 </route>
 <template>
+  <div class="home">
+
+    <div class="home-mid">
+
+      <div class="h-m-img">
+        <img src="" alt="">
+      </div>
+      <div class="h-m-btn">
+        <div>载体借还</div>
+        <div>管 理 员</div>
+        <div>使用帮助</div>
+        <div>机柜信息</div>
+      </div>
+
+    </div>
 
 
-  <div
-    class="bg-white overflow-hidden pt-2 px-4 home"
-    :style="{ marginTop: safeAreaInsets?.top + 'px' }"
-  >
+    <div class="home-btm">
+      <div class="h-btm-tit">
+        <div>
+          <img src="" alt="">
+        </div>
+        <div>涉密柜使用注意事项</div>
+      </div>
 
+      <div class="btm-txt">
+        1、本柜每个存储单元格内共设置3层存放空间，如有较大、较重的物品(比如笔记本电脑)请尽量放置在最下面一
+        层，其他如(硬盘、u盘)等小型物品可放置在上面两层。
+      </div>
+      <div class="btm-txt">
+        2、在存放物品关闭柜门后，如系统显示的物品不准确，存在错漏的情况，请在主柜的操作屏上登录系统，开柜后把
+        物品随机拨乱一下，然后再关闭柜门，等待系统的确认即可。
+      </div>
 
-
-
-
+      <div class="btm-txt">
+        3、本柜为涉密载体柜，严禁放置各类非管控物品，特别是各类水、饮品、酒等液体物品。
+      </div>
+    </div>
 
 
 
@@ -32,22 +59,90 @@ defineOptions({
   name: 'Home',
 })
 
-// 获取屏幕边界到安全区域距离
-const { safeAreaInsets } = uni.getSystemInfoSync()
 
 
-
-onMounted(() => {
-
-
-
-})
+onMounted(() => {})
 </script>
 
 <style lang="scss" scoped>
+.home {
+  border: 1px solid red;
+  box-sizing: border-box;
+  padding: 10rpx;
+  .home-mid{
+    background:#243157 ;
 
-  .home{
-    border: 1px solid red ;
-    
+    .h-m-img{
+      width: 100%;
+      height: 560rpx;
+      background: #2c395d;
+    }
+    .h-m-btn{
+      width: 100%;
+      height: 320rpx;
+      box-sizing: border-box;
+      border-radius: 30rpx;
+      background: #354164;
+      margin: 10rpx 0;
+
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      justify-items: center;
+
+      align-items: center;
+      flex-wrap: wrap;
+
+      div{
+
+        width: 300rpx;
+        height: 122rpx;
+        line-height: 122rpx;
+        border: 1px solid #285a94;
+        box-sizing: border-box;
+        border-radius: 15rpx;
+        background: #2a578e;
+        text-align: center;
+
+      }
+
+    }
+
+
   }
+  .home-btm{
+    border-top: 2px solid #1d72be ;
+    border-bottom: 2px solid #1d72be ;
+    border-left: 4px solid #1d72be;
+    border-right: 4px solid #1d72be;
+    box-sizing: border-box;
+    padding: 20rpx 40rpx;
+    margin-bottom: 30rpx;
+    .h-btm-tit{
+      font-size: 22rpx;
+      display: flex;
+      align-items: center;
+      margin-bottom: 15rpx;
+      div:nth-child(1){
+        width: 38rpx;
+        height: 30rpx;
+        border: 1px solid #ccc;
+        margin-right: 22rpx;
+      }
+      div:nth-child(2){
+
+      }
+    }
+
+    .btm-txt{
+      font-size: 18rpx;
+      line-height: 28rpx;
+    }
+
+
+
+
+  }
+
+}
 </style>

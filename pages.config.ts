@@ -17,15 +17,15 @@ export default defineUniPages({
     },
   },
   tabBar: {
-
+    custom: true,
     color: '#999999',
     selectedColor: '#018d71',
     backgroundColor: '#F8F8F8',
     borderStyle: 'black',
-    height: '50px',
-    fontSize: '10px',
-    iconWidth: '24px',
-    spacing: '3px',
+    height: '0px',
+    fontSize: '0px',
+    iconWidth: '0px',
+    spacing: '0px',
     list: [
       {
         iconPath: 'static/tabbar/home.png',
@@ -39,6 +39,52 @@ export default defineUniPages({
         pagePath: 'pages/about/about',
         text: '关于',
       }
+
     ],
   },
+  pages: [
+    {
+      path: 'pages/userInfor/userInfor',
+      type: 'home',
+      layout: 'default',
+      style: {
+        navigationBarTitleText: '',
+        navigationStyle: 'custom',
+      },
+    },
+    {
+      path: 'pages/distinguish/distinguish',
+      layout: 'default',
+      style: {
+        navigationBarTitleText: '',
+        navigationStyle: 'custom',
+      },
+    },
+    {
+      path: 'pages/login/login',
+      layout: 'default',
+      style: {
+        navigationBarTitleText: '登录',
+        navigationStyle: 'custom',
+      },
+    },
+    {
+      path: 'pages/index/index',
+
+      layout: 'default',
+      style: {
+        navigationStyle: 'custom',
+        navigationBarTitleText: '首页',
+      },
+    },
+    {
+      path: "pages/about/about",
+      style: {
+        navigationStyle: "custom",
+        navigationBarTitleText: "关于"
+      }
+    },
+
+  ]
+
 })
