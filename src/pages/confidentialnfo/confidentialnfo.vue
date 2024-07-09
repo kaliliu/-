@@ -139,7 +139,6 @@
             height: 4.35rem;
             background: #606e8c;
             border: 1px solid #ccc;
-
           }
         }
 
