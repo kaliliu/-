@@ -34,8 +34,6 @@
 
 
 
-
-
     <div class="conf-info">
 
       <div class="conf-info-t">
@@ -55,36 +53,34 @@
 
 
 
-<!--      :-->
-
-<!--      涉密柜格号:-->
-<!--      指纹特征值:-->
-<!--      人脸特征值:-->
-<!--      取消/Cancel-->
-<!--      确定/Ok-->
-
 
       <div class="conf-info-b">
 
         <div>
           <wd-input type="text" label="涉密柜编号：" v-model="value4" />
-          <wd-input type="text" label="角色类型：" v-model="value5" />
-          <wd-input type="text" label="所属部门：" v-model="value6" />
+          <wd-input type="text" label="涉密柜格号：" v-model="value5" />
+          <wd-input type="text" label="指纹特征值：" v-model="value6" />
+          <wd-input type="text" label="人脸特征值：" v-model="value7" />
         </div>
 
 
 
+        <div>
+          <wd-button>涉密柜分配</wd-button>
+        </div>
+
+
       </div>
-
-
-
-
 
 
     </div>
 
 
 
+    <div class="conf-footer">
+      <wd-button>取消/Cancel</wd-button>
+      <wd-button>确定/Ok</wd-button>
+    </div>
 
 
 
@@ -113,7 +109,7 @@
     width: auto;
     height: calc(100% - 1.05rem);
     position: relative;
-    border: 1px solid red ;
+    /*border: 1px solid red ;*/
 
     .confident-box{
       width: 100%;
@@ -180,16 +176,55 @@
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
-        border: 1px solid red ;
+        /*border: 1px solid red ;*/
 
         box-sizing: border-box;
         padding: .4rem 0;
+        div img{
+          width: 2.14rem;
+        }
+        :deep(.wd-input__label){
+          min-width: 41% !important;
+          max-width: 41% !important;
+        }
+
+
       }
 
 
       .conf-info-b{
-        border: 1px solid red ;
-        height: calc(100% - 3.3rem);
+        /*border: 1px solid red ;*/
+        height: calc(100% - 3.5rem);
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        box-sizing: border-box;
+
+        div:nth-child(1){
+          display: flex;
+          flex-direction: column;
+          justify-content: space-evenly;
+        }
+
+        div:nth-child(2){
+          margin-top: .2rem;
+        }
+
+        :deep(.wd-button.is-medium.is-round){
+          width: 2.45rem;
+          height: .8rem;
+        }
+
+
+        :deep(.wd-input__label){
+          min-width: 41% !important;
+          max-width: 41% !important;
+        }
+        :deep(.wd-input.is-cell){
+
+        }
+
+
       }
 
 
@@ -198,18 +233,30 @@
 
 
 
+    .conf-footer{
+      /*border: 1px solid red ;*/
+      width: auto;
+      height: 2rem;
+      border-radius: .2rem;
+      background: #2e3d62;
+      margin: .2rem 0;
+      display: flex;
+      flex-direction:row;
+      justify-content: space-evenly;
 
+      :deep(.wd-button.is-medium.is-round){
+        width: 2.9rem;
+        height: 1.25rem;
+        margin: auto;
+      }
 
-
-
-
-
-
-
+    }
 
 
     :deep(.wd-input.is-cell){
       background: transparent;
+      align-items: center;
+      padding: .1rem;
     }
     :deep(.wd-input__label-inner){
       color: #fff;
@@ -228,13 +275,8 @@
       font-size: .32rem;
       box-sizing: border-box;
     }
-    :deep(.wd-input.is-cell){
-      align-items: center;
-    }
-    :deep(.wd-input__label){
-      /*min-width: 41% !important;*/
-      /*max-width: 41% !important;*/
-    }
+
+
 
     :deep(.wd-button.is-medium.is-round){
       width: 1.5rem;

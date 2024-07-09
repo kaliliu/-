@@ -49,15 +49,6 @@
       "layout": "default"
     },
     {
-      "path": "pages/index/index",
-      "style": {
-        "navigationStyle": "custom",
-        "navigationBarTitleText": "首页"
-      },
-      "layout": "default"
-    },
-
-    {
       "path": "pages/about/about",
       "type": "page",
       "style": {
@@ -80,6 +71,15 @@
       "style": {
         "navigationBarTitleText": "",
         "navigationStyle": "custom"
+      },
+      "layout": "default"
+    },
+    {
+      "path": "pages/index/index",
+      "type": "page",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "首页"
       },
       "layout": "default"
     },
