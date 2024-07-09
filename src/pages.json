@@ -40,20 +40,20 @@
   },
   "pages": [
     {
-      "path": "pages/userInfor/userInfor",
-      "type": "home",
-      "style": {
-        "navigationBarTitleText": "",
-        "navigationStyle": "custom"
-      },
-      "layout": "default"
-    },
-    {
       "path": "pages/index/index",
       "type": "home",
       "style": {
         "navigationStyle": "custom",
         "navigationBarTitleText": "首页"
+      },
+      "layout": "default"
+    },
+    {
+      "path": "pages/confidentialnfo/confidentialnfo",
+      "type": "home",
+      "style": {
+        "navigationBarTitleText": "",
+        "navigationStyle": "custom"
       },
       "layout": "default"
     },
@@ -69,17 +69,10 @@
       "path": "pages/borrowinReturn/borrowinReturn",
       "type": "page",
       "style": {
-        "navigationStyle": "custom",
-        "navigationBarTitleText": ""
-      }
-    },
-    {
-      "path": "pages/confidentialnfo/confidentialnfo",
-      "type": "page",
-      "style": {
-        "navigationStyle": "custom",
-        "navigationBarTitleText": ""
-      }
+        "navigationBarTitleText": "",
+        "navigationStyle": "custom"
+      },
+      "layout": "default"
     },
     {
       "path": "pages/distinguish/distinguish",
@@ -95,6 +88,15 @@
       "type": "page",
       "style": {
         "navigationBarTitleText": "登录",
+        "navigationStyle": "custom"
+      },
+      "layout": "default"
+    },
+    {
+      "path": "pages/userInfor/userInfor",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "",
         "navigationStyle": "custom"
       },
       "layout": "default"
