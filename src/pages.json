@@ -66,6 +66,22 @@
       }
     },
     {
+      "path": "pages/borrowinReturn/borrowinReturn",
+      "type": "page",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": ""
+      }
+    },
+    {
+      "path": "pages/confidentialnfo/confidentialnfo",
+      "type": "page",
+      "style": {
+        "navigationStyle": "custom",
+        "navigationBarTitleText": ""
+      }
+    },
+    {
       "path": "pages/distinguish/distinguish",
       "type": "page",
       "style": {

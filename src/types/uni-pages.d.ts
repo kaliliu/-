@@ -7,6 +7,8 @@ interface NavigateToOptions {
   url: "/pages/userInfor/userInfor" |
        "/pages/index/index" |
        "/pages/about/about" |
+       "/pages/borrowinReturn/borrowinReturn" |
+       "/pages/confidentialnfo/confidentialnfo" |
        "/pages/distinguish/distinguish" |
        "/pages/login/login";
 }
