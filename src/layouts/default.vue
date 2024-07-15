@@ -48,18 +48,23 @@ const { safeAreaInsets } = uni.getSystemInfoSync()
       display: flex;
       justify-content: flex-start;
       justify-items: center;
+      box-sizing: border-box;
+      padding: .45rem 0 .58rem;
       img{
-        width: 3.16rem;
+
+        border: 1px solid #ccc ;
+        min-width: 3.16rem;
+        width: 45%;
         height: 1rem;
 
-        margin: 0 .3rem;
+        margin: 0 1rem 0 .42rem;
 
       }
       .h-r{
         display: flex;
         flex-direction: column;
         justify-content:space-evenly;
-        font-size: .22rem;
+        font-size: .32rem;
       }
     }
   }

@@ -2,52 +2,141 @@
   {
   style: {
   navigationStyle: 'custom',
-  navigationBarTitleText: '登录',
+  navigationBarTitleText: '',
   },
   }
 </route>
 <template>
-    <div class="login">
+  <div class="login">
 
-      <div class="login-con">
-        <div class="login-tit">
-          <div>请输入管理员密码</div>
-          <div>Please enter your administrator Password</div>
-        </div>
+    <div class="login-user">
 
-        <view class="user-psd">
-          <wd-form ref="form" :model="model">
-            <wd-input
-              prop="password"
-              key="password"
-              show-password
-              v-model="model.password"
-              placeholder="请输入密码"
-              :rules="[{ required: true, message: '请输入密码' }]"
-            />
-          </wd-form>
 
+      <wd-form ref="form" :model="model">
+
+        <view class="user-name">
+          <wd-input
+            prop="username"
+            key="username"
+            clearable
+            v-model="model.username"
+            placeholder="请输入"
+            :prefix-icon="'user'"
+            :rules="[{ required: true, message: '请输入用户名' }]"
+          />
         </view>
 
+
+
+
+<!--        <wd-icon name="lock-on" size="22px"></wd-icon>-->
+        <view class="user-psd">
+          <wd-input
+            prop="password"
+            key="password"
+            show-password
+            v-model="model.password"
+            placeholder="请输入"
+            :prefix-icon="'lock-on'"
+            :rules="[{ required: true, message: '请输入密码' }]"
+          />
+        </view>
+
+
+      </wd-form>
+
+
+
+
+
+
+    </div>
+
+
+    <div class="login-btn">
+
+      <div @click="borrowingreturnClick">
+        <img src="" alt="">
+        <p>登录</p>
       </div>
-
-
-      <div class="login-btn">
-
-        <div>退出/Exit</div>
-        <div>更正/Correct</div>
-        <div>确定/Enter</div>
-
+      <div @click="fingerprintClick('zhiwen')">
+        <img src="" alt="">
+        <p>指纹</p>
+      </div>
+      <div @click="fingerprintClick('shibie')">
+        <img src="" alt="">
+        <p>人脸识别</p>
       </div>
 
     </div>
+
+    <div class="return-icon">
+      <img src="/src/static/images/return.png" alt="">
+    </div>
+
+  </div>
 </template>
 
 <script lang="ts" setup>
 
-  const model = reactive({
-    password: ""
+
+  const model = ref<any>({
+    username: "",
+    password: "",
   })
+
+
+
+
+  // 跳转指纹/人脸识别页面
+  function fingerprintClick(tt1) {
+
+    // 请求成功
+
+
+    const item = {
+      id:1,
+      tt:tt1
+    }
+
+
+
+    setTimeout(()=>{
+
+      uni.navigateTo({
+        url: '/pages/distinguish/distinguish?item='+JSON.stringify(item)
+      })
+
+
+    },500)
+
+
+  }
+
+
+
+
+
+
+  // 跳转登录页面
+  function borrowingreturnClick() {
+
+    // 请求成功
+
+    setTimeout(()=>{
+
+
+      uni.navigateTo({
+        url: '/pages/userInfor/userInfor'
+      })
+
+
+
+    },500)
+
+  }
+
+
 
 </script>
 
@@ -56,85 +145,143 @@
   .login{
     width: auto;
     height: calc(100% - 1.05rem);
-    border: 1px solid red ;
     position: relative;
-    .login-con{
-      width: auto;
-      height: 2.8rem;
+
+    .login-user{
       position: absolute;
+      min-width: 4.85rem;
+      width: 68%;
+      height: 5rem;
+      top: 15%;
       left: 0;
       right: 0;
-      top: 18%;
-      bottom: 0;
+      margin:auto;
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      justify-content: center;
+      align-items: center;
+      background: #25b3ff;
 
 
-      .login-tit{
-        text-align: center;
-        div:nth-child(1){
-          font-size: .46rem;
-          font-weight: 600;
+      .wd-form{
+        width: 80%;
+        /*height: 100%;*/
+        .user-name{
+          height: .8rem;
+          margin-bottom: .3rem;
         }
-        div:nth-child(2){
-          font-size: .18rem;
+        .user-psd{
+          height: .8rem;
         }
+
+
+
+        :deep(.wd-input__body){
+          height: 100%;
+
+        }
+        :deep(.wd-input__value){
+          height: 100%;
+          font-size: .32rem;
+
+        }
+        :deep(.wd-input){
+          height: 100%;
+
+        }
+        :deep(.wd-input__inner){
+          height: 100%;
+
+        }
+        :deep(.wd-input__prefix){
+
+          height: 100%;
+          display: flex;
+          align-items: center;
+
+        }
+        :deep(.wd-input__icon){
+
+          font-size: .48rem;
+
+        }
+        :deep(.wd-input__placeholder){
+
+          height: 100%;
+          font-size: .32rem;
+          display: flex;
+          align-items: center;
+
+        }
+        :deep(.uni-input-input){
+          font-size: .32rem;
+          color: #333;
+
+        }
+        :deep(.wd-input__suffix){
+          height: 100%;
+          display: flex;align-items: center;
+
+        }
+        :deep(.wd-input__clear){
+          font-size: .48rem;
+
+        }
+
+
+
+
+
 
       }
-      .user-psd{
-        border: 1px solid red ;
-        width: 45%;
-        margin: 0 auto;
-      }
+
+
+
+
+
+
+
+
+
+
+
+
     }
 
-
     .login-btn{
-      border: 1px solid red ;
-
+      /*border: 1px solid red ;*/
       display: flex;
       flex-direction: row;
       justify-content: space-evenly;
-
-      position: fixed;
+      align-items: center;
+      position: absolute;
       left: 0;
       right: 0;
-      bottom: 18%;
+      bottom: 25%;
+      font-size: .32rem;
       div{
-        width: 32%;
-        aspect-ratio: 343 / 150; /* 设置宽高比为16:9 */
-        border-radius: .33rem;
-        background: #fff;
-        color: #0f2e6e;
-        font-weight: bold;
-        font-size: .36rem;
         display: flex;
-        align-items: center;
-        text-align: center;
+        flex-direction: column;
         justify-content: center;
+        align-items: center;
+        p{margin-top: .2rem}
+      }
+      img{
+        width: .45rem;
+        height: .56rem;
+        border: 1px solid #ccc;
+        vertical-align: bottom;
       }
 
     }
 
-
-    :deep(.wd-input__value){
-      height: .7rem;
-    }
-    :deep(.wd-input__suffix){
-      height: .7rem;
-      position: relative;
-    }
-    :deep(.wd-icon){
+    .return-icon{
       position: absolute;
-      left: -.6rem;
-      top: .16rem;
-      font-size: .38rem;
+      right: .7rem;
+      bottom: .5rem;
+      img{
+        width: 1.81rem;
+        vertical-align: middle;
+      }
     }
-    :deep(.uni-input-input){
-      font-size: .32rem;
-    }
-
-
   }
 </style>

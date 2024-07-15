@@ -46,7 +46,7 @@ export default defineUniPages({
     {
       path: 'pages/confidentialnfo/confidentialnfo',
       layout: 'default',
-      type: 'home',
+
       style: {
         navigationBarTitleText: '',
         navigationStyle: 'custom',
@@ -64,6 +64,7 @@ export default defineUniPages({
     {
       path: 'pages/distinguish/distinguish',
       layout: 'default',
+
       style: {
         navigationBarTitleText: '',
         navigationStyle: 'custom',
@@ -73,7 +74,6 @@ export default defineUniPages({
     {
       path: 'pages/userInfor/userInfor',
       layout: 'default',
-
       style: {
         navigationBarTitleText: '',
         navigationStyle: 'custom',
@@ -83,13 +83,27 @@ export default defineUniPages({
     {
       path: 'pages/login/login',
       layout: 'default',
+
       style: {
         navigationBarTitleText: '登录',
         navigationStyle: 'custom',
       },
     },
     {
+      path: 'pages/administratorPsd/administratorPsd',
+      layout: 'default',
+      style: {
+        navigationBarTitleText: '',
+        navigationStyle: 'custom',
+      },
+    },
+
+
+
+    {
       path: 'pages/index/index',
+      type: 'home',
+
       layout: 'default',
       style: {
         navigationStyle: 'custom',

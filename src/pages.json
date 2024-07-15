@@ -40,11 +40,11 @@
   },
   "pages": [
     {
-      "path": "pages/confidentialnfo/confidentialnfo",
+      "path": "pages/index/index",
       "type": "home",
       "style": {
-        "navigationBarTitleText": "",
-        "navigationStyle": "custom"
+        "navigationStyle": "custom",
+        "navigationBarTitleText": "首页"
       },
       "layout": "default"
     },
@@ -57,7 +57,25 @@
       }
     },
     {
+      "path": "pages/administratorPsd/administratorPsd",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "",
+        "navigationStyle": "custom"
+      },
+      "layout": "default"
+    },
+    {
       "path": "pages/borrowinReturn/borrowinReturn",
+      "type": "page",
+      "style": {
+        "navigationBarTitleText": "",
+        "navigationStyle": "custom"
+      },
+      "layout": "default"
+    },
+    {
+      "path": "pages/confidentialnfo/confidentialnfo",
       "type": "page",
       "style": {
         "navigationBarTitleText": "",
@@ -71,15 +89,6 @@
       "style": {
         "navigationBarTitleText": "",
         "navigationStyle": "custom"
-      },
-      "layout": "default"
-    },
-    {
-      "path": "pages/index/index",
-      "type": "page",
-      "style": {
-        "navigationStyle": "custom",
-        "navigationBarTitleText": "首页"
       },
       "layout": "default"
     },

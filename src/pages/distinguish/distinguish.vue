@@ -2,21 +2,22 @@
     <div class="distinguish">
 
       <div class="dis-img">
-        <img src="/src/static/images/renmianshibie.png" alt="">
+        <img src="/src/static/images/zhiwen.png" alt="" v-if="tt=='zhiwen'" @click="IdentificationSuccessfulClick">
+        <img src="/src/static/images/renmianshibie.png" alt="" v-else @click="IdentificationSuccessfulClick">
       </div>
 
 
       <div class="dis-btn">
 
-        <div>
+        <div @click="borrowingreturnClick">
           <img src="" alt="">
           <p>账号</p>
         </div>
-        <div>
+        <div @click="fingerprintClick('zhiwen')">
           <img src="" alt="">
           <p>指纹</p>
         </div>
-        <div>
+        <div @click="fingerprintClick('shibie')">
           <img src="" alt="">
           <p>人脸识别</p>
         </div>
@@ -31,6 +32,100 @@
 </template>
 
 <script lang="ts" setup>
+
+
+
+  const tt = ref('')
+
+
+
+  //options 为传回来的参数
+
+  onLoad((options) => {
+
+    const item = JSON.parse(options.item)
+    tt.value = item.tt
+
+
+  })
+
+
+
+
+
+
+
+  // 跳转指纹/人脸识别页面
+  function fingerprintClick(tt1) {
+    console.log(tt.value);
+    console.log(tt1);
+    console.log(tt1);
+
+    if(tt.value!==tt1){
+
+      setTimeout(()=>{
+
+        const item = {
+          id:1,
+          tt:tt1
+        }
+
+
+        uni.navigateTo({
+          url: '/pages/distinguish/distinguish?item='+JSON.stringify(item)
+        })
+
+      },500)
+
+    }
+
+
+  }
+
+
+
+
+
+  function IdentificationSuccessfulClick() {
+
+    setTimeout(()=>{
+
+
+      uni.navigateTo({
+        url: '/pages/userInfor/userInfor'
+      })
+
+
+
+    },800)
+
+  }
+
+
+
+
+
+
+  // 跳转登录页面
+  function borrowingreturnClick() {
+    console.log(99);
+
+    // 请求成功
+
+    setTimeout(()=>{
+
+
+      uni.navigateTo({
+        url: '/pages/login/login'
+      })
+
+
+    },500)
+
+  }
+
+
+
 
 </script>
 

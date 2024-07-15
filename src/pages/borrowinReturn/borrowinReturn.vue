@@ -65,8 +65,8 @@
     <div class="user-btn">
 
       <div>异常上报/<br>Anomaly reported</div>
-      <div>重新识别/<br>Recalibrate</div>
-      <div>确定/ok</div>
+      <div @click="reIdentifyClick">重新识别/<br>Recalibrate</div>
+      <div @click="borrowingreturnClick">确定/ok</div>
 
     </div>
 
@@ -76,6 +76,9 @@
 
 <script lang="ts" setup>
   import { ref } from 'vue'
+  import { useToast } from 'wot-design-uni'
+
+  const toast = useToast()
 
 
   const model = ref({
@@ -106,6 +109,49 @@
   function handleSort(e) {
     dataList.value = dataList.value.reverse()
   }
+
+
+
+
+
+
+
+
+  function reIdentifyClick() {
+    // 跳转借还页面
+    uni.navigateTo({
+      url: '/pages/administratorPsd/administratorPsd'
+    })
+
+  }
+
+  function borrowingreturnClick() {
+    toast.loading({
+      loadingType: 'ring',
+      msg: '正在刷卡扫描中，请稍后...',
+
+    })
+
+    // 请求成功关闭
+
+    setTimeout(()=>{
+      toast.close()
+
+
+
+      // 跳转借还页面
+      uni.navigateTo({
+        url: '/pages/borrowinReturn/borrowinReturn'
+      })
+
+
+
+    },3000)
+
+  }
+
+
+
 
 </script>
 
@@ -229,5 +275,55 @@
     }
 
   }
+
+
+
+
+
+
+
+
+  /*借还loading弹框*/
+
+  :deep(.wd-toast--with-icon){
+
+    width: 50%;
+    height: 1.5rem;
+    line-height: 1.5rem;
+  }
+
+  :deep(.wd-toast__msg){
+
+    font-size: .32rem;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: .42rem;
+
+  }
+
+
+  :deep(.wd-toast__icon){
+
+    width: .6rem !important;
+    height: .6rem !important;
+
+  }
+  :deep(.wd-loading__svg){
+    width: .6rem !important;
+  }
+
+  :deep(.wd-toast){
+    padding: .3rem ;
+    max-width: 50%;
+
+  }
+
+
+
+
+
 
 </style>

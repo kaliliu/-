@@ -94,6 +94,8 @@
 
 
 
+
+
 <!--  用户名称选择-->
   <wd-popup v-model="show2"  @close="handleClose2">
 
@@ -105,20 +107,15 @@
 
 
 
-
-
       <div class="user-box-con">
         <div v-for="(item,index) in nameArr" :key="index">{{item}}</div>
       </div>
 
 
 
-
-
-
       <div class="smg-box-footer">
-        <wd-button>取消/Cancel</wd-button>
-        <wd-button style="width: 2.1rem">确定/Ok</wd-button>
+        <wd-button @click="handleClose2">取消/Cancel</wd-button>
+        <wd-button style="width: 2.1rem" >确定/Ok</wd-button>
       </div>
 
 
@@ -128,6 +125,11 @@
 
 
   </wd-popup>
+
+
+
+
+
 
 <!--  涉密柜分配-->
   <wd-popup v-model="show1" @close="handleClose1">
@@ -160,7 +162,7 @@
 
 
       <div class="smg-box-footer">
-        <wd-button>取消/Cancel</wd-button>
+        <wd-button @click="handleClose1">取消/Cancel</wd-button>
         <wd-button style="width: 2.1rem">确定/Ok</wd-button>
       </div>
 
@@ -171,6 +173,7 @@
 
 
   </wd-popup>
+
 
 
 

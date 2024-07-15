@@ -13,10 +13,10 @@
     <div class="home-mid">
 
       <div class="h-m-img">
-        <img src="" alt="">
+        <img src="/src/static/images/index-bg.png" alt="">
       </div>
       <div class="h-m-btn">
-        <div>载体借还</div>
+        <div @click="borrowingreturnClick">载体借还</div>
         <div>管 理 员</div>
         <div>使用帮助</div>
         <div>机柜信息</div>
@@ -60,6 +60,34 @@ defineOptions({
 
 
 
+
+
+function borrowingreturnClick() {
+
+  // 请求成功
+
+  setTimeout(()=>{
+
+    // 跳转登录页面
+    uni.navigateTo({
+      url: '/pages/login/login'
+    })
+
+
+  },500)
+
+}
+
+
+
+
+
+// 跳转载体借还页面
+uni.navigateTo({
+  url: '/pages/borrowinReturn/borrowinReturn'
+})
+
+
 onMounted(() => {})
 </script>
 
@@ -67,7 +95,7 @@ onMounted(() => {})
 .home {
   /*border: 1px solid red;*/
   box-sizing: border-box;
-  padding: .1rem;
+  padding: .15rem;
   .home-mid{
     background:#243157 ;
 
@@ -75,6 +103,10 @@ onMounted(() => {})
       width: 100%;
       height: 8.7rem;
       background: #2c395d;
+      img{
+        width: 10.4rem;
+        margin: 0 auto;
+      }
     }
     .h-m-btn{
       width: 100%;
@@ -111,10 +143,10 @@ onMounted(() => {})
 
   }
   .home-btm{
-    border-top: 2px solid #1d72be ;
-    border-bottom: 2px solid #1d72be ;
-    border-left: 4px solid #1d72be;
-    border-right: 4px solid #1d72be;
+    border-top: .02rem solid #1d72be ;
+    border-bottom: .02rem solid #1d72be ;
+    border-left: .04rem solid #1d72be;
+    border-right: .04rem solid #1d72be;
     box-sizing: border-box;
     padding: .28rem .6rem;
     margin-bottom: .46rem;
@@ -133,11 +165,9 @@ onMounted(() => {})
     }
 
     .btm-txt{
-      font-size: .2rem;
-      line-height: .35rem;
+      font-size: .32rem;
+      line-height: .52rem;
     }
-
-
 
   }
 

@@ -93,18 +93,106 @@
 
       <div class="user-btn">
 
-        <div>修改密码/<br>Change</div>
-        <div>借还/<br>Borrow and return</div>
-        <div>退出/Exit</div>
+        <div @click="handleClick1">修改密码/<br>Change</div>
+        <div @click="borrowingreturnClick">借还/<br>Borrow and return</div>
+        <div @click="signOutClick">退出/Exit</div>
 
       </div>
 
 
     </div>
+
+
+
+
+
+  <!--  密码修改-->
+  <wd-popup v-model="show1" @close="handleClose1">
+
+    <div class="smg-box">
+
+
+      <view class="user-psd">
+
+
+        <wd-form ref="form" :model="model">
+
+
+          <wd-input
+            label="原密码"
+            prop="password"
+            key="password"
+            show-password
+            v-model="model.originalPassword"
+            placeholder=" "
+            :rules="[{ required: true, message: '请输入原密码' }]"
+          />
+
+          <wd-input
+            label="新密码"
+            prop="password"
+            key="password"
+            show-password
+            v-model="model.newPassword"
+            placeholder=" "
+            :rules="[{ required: true, message: '请输入新密码' }]"
+          />
+
+          <wd-input
+            label="确认密码"
+            prop="password"
+            key="password"
+            show-password
+            v-model="model.confirmPassword"
+            placeholder=" "
+            :rules="[{ required: true, message: '请输入确认密码' }]"
+          />
+
+
+        </wd-form>
+
+
+      </view>
+
+
+
+
+
+
+      <div class="smg-box-footer">
+        <wd-button @click="handleClose1">取消/Cancel</wd-button>
+        <wd-button style="width: 2.1rem">确定/Ok</wd-button>
+      </div>
+
+
+
+    </div>
+
+
+
+  </wd-popup>
+
+
+
+<!--  <wd-toast />-->
+
+
+
 </template>
 
 <script lang="ts" setup>
   import { ref } from 'vue'
+  import { useToast } from 'wot-design-uni'
+  const show1 = ref<boolean>(false)
+
+  const toast = useToast()
+
+  const model = ref<any>({
+    originalPassword: "",
+    newPassword: "",
+    confirmPassword: "",
+  })
+
 
   const dataList = ref<Record<string, any>[]>([
     {
@@ -160,6 +248,55 @@
     dataList.value = dataList.value.reverse()
   }
 
+  function handleClose1() {
+    show1.value = false
+  }
+  function handleClick1() {
+    show1.value = true
+  }
+
+  function borrowingreturnClick() {
+    toast.loading({
+      loadingType: 'ring',
+      msg: '正在借还中，请稍后...',
+
+    })
+
+    // 请求成功关闭
+
+    setTimeout(()=>{
+      toast.close()
+
+
+
+      // 跳转借还页面
+      uni.navigateTo({
+        url: '/pages/borrowinReturn/borrowinReturn'
+      })
+
+
+
+    },3000)
+
+  }
+
+
+
+
+  function signOutClick() {
+    // 请求成功退出到登录页面
+
+    setTimeout(()=>{
+
+      uni.navigateTo({
+        url: '/pages/login/login'
+      })
+
+
+    },800)
+  }
+
+
 </script>
 
 <style scoped lang="scss">
@@ -168,10 +305,10 @@
     width: auto;
     height: calc(100% - 1.05rem);
     position: relative;
-    border: 1px solid red ;
+    /*border: 1px solid red ;*/
 
     .user-img{
-      border: 1px solid red ;
+      /*border: 1px solid red ;*/
       text-align: center;
       padding: 1.25rem;
       img{
@@ -180,7 +317,7 @@
     }
 
     .user-int{
-      border: 1px solid red ;
+      /*border: 1px solid red ;*/
       width: 50%;
     }
 
@@ -210,6 +347,7 @@
     :deep(.wd-input__label){
       min-width: 41% !important;
       max-width: 41% !important;
+      width: 1rem;
     }
 
     /*表格*/
@@ -255,7 +393,7 @@
 
 
     .user-btn{
-      border: 1px solid red ;
+      /*border: 1px solid red ;*/
 
       display: flex;
       flex-direction: row;
@@ -283,5 +421,219 @@
     }
 
 }
+
+
+
+
+
+  .smg-box{
+    width:8rem ;
+    height: 6rem;
+    background: rgba(32,69,134,.9);
+    font-size: .32rem;
+    /*border: 1px solid red ;*/
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+
+
+  }
+
+
+
+
+  .smg-box-footer{
+    /*border: 1px solid red ;*/
+    display: flex;
+    flex-direction:row;
+    justify-content: space-evenly;
+    margin-bottom:.5rem;
+
+    :deep(.wd-button.is-medium.is-round){
+      width: 2.5rem;
+      height: .6rem;
+      border-radius: 0;
+      background: #fff;
+      font-size: .32rem;
+      color: #13398b;
+      font-weight: bold;
+    }
+
+  }
+
+
+
+
+
+
+
+
+  .user-psd{
+    width: 85%;
+    margin: auto;
+
+
+    .wd-form{
+
+
+
+      :deep(.wd-input__label){
+        height: 100%;
+        display: flex;
+        align-items: center;
+        font-size: .32rem;
+        box-sizing: border-box;
+        padding-left: .3rem;
+        color: #eef4f5;
+        margin-right: 0;
+      }
+
+
+      :deep(.wd-input__label.is-required::after){
+        top: .25rem;
+        font-size:.28rem;
+        left: .1rem;
+
+      }
+
+
+
+      :deep(.wd-input__label-inner){
+        font-size: .32rem;
+      }
+
+      :deep(.wd-input__label-inner){
+        font-size: .32rem;
+      }
+
+
+
+      :deep(.wd-input.is-cell){
+        height: .8rem;
+        /*border: 1px solid red ;*/
+        background: transparent;
+        margin-right: 0;
+        margin-bottom: .2rem;
+      }
+
+
+
+      :deep(.wd-input__body){
+        height: 100%;
+        background: #fff;
+
+      }
+
+
+      :deep(.wd-input__value){
+        height: 100%;
+        font-size: .32rem;
+
+      }
+      :deep(.wd-input){
+        height: 100%;
+
+      }
+      :deep(.wd-input__inner){
+        height: 100%;
+
+      }
+      :deep(.wd-input__prefix){
+
+        height: 100%;
+        display: flex;
+        align-items: center;
+
+      }
+      :deep(.wd-input__icon){
+
+        font-size: .42rem;
+
+      }
+      :deep(.wd-input__placeholder){
+
+        height: 100%;
+        font-size: .28rem;
+        display: flex;
+        align-items: center;
+
+      }
+      :deep(.uni-input-input){
+        font-size: .32rem;
+        color: #333;
+        box-sizing: border-box;
+        padding-left: .2rem;
+
+      }
+      :deep(.wd-input__suffix){
+        height: 100%;
+        display: flex;align-items: center;
+
+        margin-right: .1rem;
+      }
+      :deep(.wd-input__clear){
+        font-size: .40rem;
+
+      }
+
+
+
+    }
+
+
+
+
+
+
+
+  }
+
+
+
+
+
+  /*借还loading弹框*/
+
+  :deep(.wd-toast--with-icon){
+
+    width: 50%;
+    height: 1.5rem;
+    line-height: 1.5rem;
+  }
+
+  :deep(.wd-toast__msg){
+
+    font-size: .32rem;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    line-height: .42rem;
+
+  }
+
+
+  :deep(.wd-toast__icon){
+
+    width: .6rem !important;
+    height: .6rem !important;
+
+  }
+  :deep(.wd-loading__svg){
+    width: .6rem !important;
+  }
+
+  :deep(.wd-toast){
+    padding: .3rem ;
+    max-width: 50%;
+
+  }
+
+
+
+
 
 </style>
