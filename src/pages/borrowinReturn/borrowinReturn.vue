@@ -9,7 +9,6 @@
 <template>
   <div class="borrowin">
 
-
     <div class="bor-txt">
 
       <span style="margin-left: 2em">您本次借还结果为:借用</span>

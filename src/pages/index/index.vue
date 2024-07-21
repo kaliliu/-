@@ -13,7 +13,10 @@
     <div class="home-mid">
 
       <div class="h-m-img">
-        <img src="/src/static/images/index-bg.png" alt="">
+
+        <wd-swiper :list="list" indicator indicatorMode="line" circular  height="8.6rem"></wd-swiper>
+
+<!--        <img src="/src/static/images/index-bg.png" alt="">-->
       </div>
       <div class="h-m-btn">
         <div @click="borrowingreturnClick">载体借还</div>
@@ -59,6 +62,17 @@ defineOptions({
 })
 
 
+const list = ref([
+  '/src/static/images/index-bg.png',
+  '/src/static/images/index-bg2.png',
+  '/src/static/images/index-bg3.png',
+  '/src/static/images/index-bg4.png',
+  '/src/static/images/index-bg5.png',
+  ])
+
+
+
+
 
 
 
@@ -83,9 +97,9 @@ function borrowingreturnClick() {
 
 
 // 跳转载体借还页面
-uni.navigateTo({
-  url: '/pages/borrowinReturn/borrowinReturn'
-})
+// uni.navigateTo({
+//   url: '/pages/borrowinReturn/borrowinReturn'
+// })
 
 
 onMounted(() => {})
