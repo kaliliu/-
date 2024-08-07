@@ -24,7 +24,7 @@
 
       </div>
 
-      <div class="return-icon">
+      <div class="return-icon" @click="returnUpPage">
         <img src="/src/static/images/return.png" alt="">
       </div>
 
@@ -51,8 +51,16 @@
 
 
 
+//返回首页
+function returnUpPage(){
+   // uni.navigateBack();
+  
+   uni.switchTab({
+          url: '/pages/index/index'
+        })
+     
 
-
+  }
 
 
   // 跳转指纹/人脸识别页面
@@ -133,7 +141,7 @@
 
   .distinguish{
     width: auto;
-    height: calc(100% - 1.05rem);
+    height: calc(90% - 2rem);
     position: relative;
 
     .dis-img{
@@ -181,7 +189,7 @@
     .return-icon{
       position: absolute;
       right: .7rem;
-      bottom: .5rem;
+      bottom: .6rem;
       img{
         width: 1.81rem;
         vertical-align: middle;

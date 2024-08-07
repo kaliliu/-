@@ -9,13 +9,9 @@
 <template>
     <div class="userInfor">
 
-
       <div class="user-img">
         <img src="/src/static/images/person.png" alt="">
       </div>
-
-
-
 
 
       <div>
@@ -62,7 +58,7 @@
 
 
 
-      <div style="border: 1px solid red ;width: 90%;margin: 1.5rem auto">
+      <div style="width: 90%;margin: 1.5rem auto">
 
         <wd-table :data="dataList" :border="false" height="6rem">
           <wd-table-col prop="mingcheng" label="载体名称" ></wd-table-col>
@@ -303,9 +299,8 @@
 
   .userInfor{
     width: auto;
-    height: calc(100% - 1.05rem);
+    height: calc(90% - 1.55rem);
     position: relative;
-    /*border: 1px solid red ;*/
 
     .user-img{
       /*border: 1px solid red ;*/

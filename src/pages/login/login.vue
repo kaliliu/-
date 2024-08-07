@@ -28,7 +28,6 @@
 
 
 
-
 <!--        <wd-icon name="lock-on" size="22px"></wd-icon>-->
         <view class="user-psd">
           <wd-input
@@ -70,7 +69,7 @@
 
     </div>
 
-    <div class="return-icon">
+    <div class="return-icon" @click="returnUpPage">
       <img src="/src/static/images/return.png" alt="">
     </div>
 
@@ -86,7 +85,16 @@
   })
 
 
+  //返回首页
+  function returnUpPage(){
+    setTimeout(()=>{
+   
+   uni.switchTab({
+          url: '/pages/index/index'
+        })
+      },500)
 
+  }
 
   // 跳转指纹/人脸识别页面
   function fingerprintClick(tt1) {
@@ -144,7 +152,7 @@
 
   .login{
     width: auto;
-    height: calc(100% - 1.05rem);
+    height: calc(90% - 1.55rem);
     position: relative;
 
     .login-user{
@@ -160,6 +168,7 @@
       justify-content: center;
       align-items: center;
       background: #25b3ff;
+
 
 
       .wd-form{

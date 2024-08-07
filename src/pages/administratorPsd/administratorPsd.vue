@@ -56,14 +56,17 @@
   //确定
   function handleClick() {
 
-
-    setTimeout(()=>{
+if(model.password=="admin"){
+  
       // 跳转主页面
       uni.navigateTo({
         url: '/pages/confidentialnfo/confidentialnfo'
       })
-    },1000)
+   
+  }else{
+    alert("密码不正确，请重新输入");
 
+  }
 
 
   }
@@ -81,12 +84,12 @@
 
     setTimeout(()=>{
 
-      uni.navigateTo({
-        url: '/pages/userInfor/userInfor'
+      uni.switchTab({
+        url: '/pages/index/index'
       })
 
 
-    },800)
+    },200)
   }
 </script>
 
@@ -94,8 +97,8 @@
 
   .login{
     width: auto;
-    height: calc(100% - 1.05rem);
-    border: 1px solid red ;
+    height: calc(90% - 1.55rem);
+    /*border: 1px solid rgb(252, 248, 248) ;*/
     position: relative;
     .login-con{
       width: auto;
@@ -122,7 +125,7 @@
 
       }
       .user-psd{
-        border: 1px solid red ;
+        //border: 1px solid red ;
         width: 45%;
         margin: 0 auto;
       }
@@ -130,7 +133,7 @@
 
 
     .login-btn{
-      border: 1px solid red ;
+      //border: 1px solid red ;
 
       display: flex;
       flex-direction: row;

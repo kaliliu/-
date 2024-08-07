@@ -9,6 +9,7 @@
 <template>
   <div class="borrowin">
 
+
     <div class="bor-txt">
 
       <span style="margin-left: 2em">您本次借还结果为:借用</span>
@@ -117,6 +118,16 @@
 
 
   function reIdentifyClick() {
+    // DotNet.invokeMethodAsync('ControlApp', 'Test')
+    //             .then(data => {
+    //                // console.log(data);
+    //                toast.loading({
+    //   loadingType: 'ring',
+    //   msg: JSON.parse(data),
+
+    // })
+    //             });
+  
     // 跳转借还页面
     uni.navigateTo({
       url: '/pages/administratorPsd/administratorPsd'
@@ -158,9 +169,8 @@
 
   .borrowin{
     width: auto;
-    height: calc(100% - 1.05rem);
+    height: calc(90% - 1.6rem);
     position: relative;
-    /*border: 1px solid red ;*/
 
     .bor-txt{
       /*border: 1px solid red ;*/

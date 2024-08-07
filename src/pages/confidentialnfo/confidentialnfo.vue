@@ -26,7 +26,7 @@
         <div class="conf-bg-btn">
           <div>启用摄像头</div>
           <div>拍照</div>
-          <div>启动指纹</div>
+          <div @click="startZW">启动指纹</div>
         </div>
       </div>
 
@@ -57,7 +57,7 @@
       <div class="conf-info-b">
 
         <div>
-          <wd-input type="text" label="涉密柜编号：" v-model="value4" />
+          <wd-input type="text" label="涉编号：" v-model="value4" />
           <wd-input type="text" label="涉密柜格号：" v-model="value5" />
           <wd-input type="text" label="指纹特征值：" v-model="value6" />
           <wd-input type="text" label="人脸特征值：" v-model="value7" />
@@ -78,7 +78,7 @@
 
 
     <div class="conf-footer">
-      <wd-button>取消/Cancel</wd-button>
+      <wd-button @click="UpPage">取消/Cancel</wd-button>
       <wd-button>确定/Ok</wd-button>
     </div>
 
@@ -180,7 +180,9 @@
 
 </template>
 
+
 <script lang="ts" setup>
+
 
   const show1 = ref<boolean>(false)
   const show2 = ref<boolean>(false)
@@ -210,7 +212,11 @@
   ])
 
 
+  //上一页
+function UpPage(){
+uni.navigateBack();
 
+}
 
 
   function handleClick2() {
@@ -228,7 +234,16 @@
   function handleClose1() {
     show1.value = false
   }
+  //录入指纹
+ function startZW(){
+ DotNet.invokeMethodAsync('ControlApp', 'startZW')
+                .then(data => {
+                 var temp= JSON.parse(data);
+                 alert(data);
+    })
+                
 
+ }
 
 </script>
 
@@ -236,27 +251,25 @@
 
   .confident{
     width: auto;
-    height: calc(100% - 1.05rem);
+    /*height: calc(100% - 1.55rem);*/
     position: relative;
-    /*border: 1px solid red ;*/
 
     .confident-box{
       width: 100%;
-      height: 6.95rem;
+      height: 6rem;
       border-radius: .2rem;
       background: #2e3d62;
-      margin: .6rem 0 .2rem;
+      margin: .2rem 0 .2rem;
       display: flex;
       .conf-bg{
         width: 7.8rem;
-        height: 5.8rem;
+        height: 5.2rem;
         background: #586481;
         margin: auto;
 
         position: relative;
 
         .conf-con{
-          /*border: 1px solid red ;*/
           width: auto;
           height: calc(100% - 1rem);
           display: flex;
@@ -265,7 +278,7 @@
           align-items: center;
           div{
             width: 3.05rem;
-            height: 4.35rem;
+            height: 3.8rem;
             background: #606e8c;
             border: 1px solid #ccc;
           }

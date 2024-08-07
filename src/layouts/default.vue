@@ -5,11 +5,11 @@
     <div class=" overflow-hidden w-100vw h-100vh default"
              :style="{ marginTop: safeAreaInsets?.top + 'px' }">
       <div class="header">
-        <img src="" alt="" >
+        <img src="/src/static/images/logo.png" alt="广东省亿源科技股份有限公司" >
 <!--        <img src="/src/static/images/biaotou.png" alt="" >-->
         <div class="h-r">
-          <div>设备编号：</div>
-          <div>版 本：</div>
+          <div>设备编号：20240701</div>
+          <div>版 本：V1.0</div>
         </div>
       </div>
 
@@ -52,10 +52,10 @@ const { safeAreaInsets } = uni.getSystemInfoSync()
       padding: .45rem 0 .58rem;
       img{
 
-        border: 1px solid #ccc ;
-        min-width: 3.16rem;
-        width: 45%;
-        height: 1rem;
+        border: 0px solid #ccc ;
+       // min-width: 3.16rem;
+        width: 30%;
+        height: auto;
 
         margin: 0 1rem 0 .42rem;
 
@@ -63,7 +63,7 @@ const { safeAreaInsets } = uni.getSystemInfoSync()
       .h-r{
         display: flex;
         flex-direction: column;
-        justify-content:space-evenly;
+        justify-content:flex-end;
         font-size: .32rem;
       }
     }

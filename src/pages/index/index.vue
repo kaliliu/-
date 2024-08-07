@@ -14,15 +14,15 @@
 
       <div class="h-m-img">
 
-        <wd-swiper :list="list" indicator indicatorMode="line" circular  height="8.6rem"></wd-swiper>
+        <wd-swiper :list="list" indicator indicatorMode="line" circular  height="6.5rem"></wd-swiper>
 
 <!--        <img src="/src/static/images/index-bg.png" alt="">-->
       </div>
       <div class="h-m-btn">
         <div @click="borrowingreturnClick">载体借还</div>
-        <div>管 理 员</div>
-        <div>使用帮助</div>
-        <div>机柜信息</div>
+        <div @click="adminlogin">管 理 员</div>
+        <div @click="RFID_Stop">使用帮助</div>
+        <div @click="RFID_Start">机柜信息</div>
       </div>
     </div>
 
@@ -54,8 +54,46 @@
   </div>
 </template>
 
+
+
+<!-- <script >
+import SerialPort from 'serialport'
+ 
+export default {
+  methods: {
+    async openSerialPort() {
+      try {
+        // 列出所有可用的串口
+        const ports = await SerialPort.list()
+        alert('可用的串口:'+ports)
+ 
+        // 选择你想要打开的串口，这里假设是第一个可用串口
+        const port = new SerialPort(ports[0].path, { baudRate: 115200 })
+ 
+        // 监听串口数据
+        port.on('data', data => {
+          alert('接收到的数据:'+ data)
+        })
+ 
+        port.on('error', err => {
+          alert('发生错误:'+err)
+        })
+ 
+        // 其他的串口事件处理（例如关闭串口等）
+      } catch (error) {
+        alert('打开串口失败:'+error)
+      }
+    }
+  }
+}
+</script> -->
+
 <script lang="ts" setup>
 import PLATFORM from '@/utils/platform'
+import { json } from 'stream/consumers'
+
+
+
 
 defineOptions({
   name: 'Home',
@@ -63,21 +101,23 @@ defineOptions({
 
 
 const list = ref([
-  '/src/static/images/index-bg.png',
-  '/src/static/images/index-bg2.png',
-  '/src/static/images/index-bg3.png',
-  '/src/static/images/index-bg4.png',
-  '/src/static/images/index-bg5.png',
+  './static/images/index-bg.png',
+  './static/images/index-bg2.png',
+  './static/images/index-bg3.png',
+  './static/images/index-bg4.png',
+  './static/images/index-bg5.png',
   ])
 
 
 
 
-// 1
+
 
 
 function borrowingreturnClick() {
 
+  // 发送串口消息
+  
   // 请求成功
 
   setTimeout(()=>{
@@ -91,10 +131,32 @@ function borrowingreturnClick() {
   },500)
 
 }
+//管理员登录
+function adminlogin(){
+  uni.navigateTo({
+      url: '/pages/administratorPsd/administratorPsd'
 
+  });
+}
 
-
-
+function RFID_Stop()
+{
+DotNet.invokeMethodAsync('ControlApp', 'RFID_Stop')
+                .then(data => {
+                  alert( data);
+                 
+                });
+  
+}
+function RFID_Start()
+{
+DotNet.invokeMethodAsync('ControlApp', 'RFID_Start')
+                .then(data => {
+                   // console.log(data);
+                  alert( data);
+                });
+  
+}
 
 // 跳转载体借还页面
 // uni.navigateTo({
@@ -115,16 +177,17 @@ onMounted(() => {})
 
     .h-m-img{
       width: 100%;
-      height: 8.7rem;
+      height: 6.5rem;
       background: #2c395d;
       img{
         width: 10.4rem;
         margin: 0 auto;
+
       }
     }
     .h-m-btn{
       width: 100%;
-      height: 4.56rem;
+      height: 4rem;
       box-sizing: border-box;
       border-radius: .3rem;
       background: #354164;
@@ -141,7 +204,7 @@ onMounted(() => {})
       div{
 
         width: 4.33rem;
-        height: 1.78rem;
+        height: 1.6rem;
         line-height: 1.78rem;
         border: 1px solid #285a94;
         box-sizing: border-box;
