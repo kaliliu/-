@@ -110,10 +110,6 @@ const list = ref([
 
 
 
-
-
-
-
 function borrowingreturnClick() {
 
   // 发送串口消息
